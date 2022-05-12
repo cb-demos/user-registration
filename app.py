@@ -21,6 +21,7 @@ INVITE_CODE_ENV = os.environ.get("INVITE_CODE", "")
 ELEVATED_INVITE_CODE_ENV = os.environ.get("ELEVATED_INVITE_CODE", "")
 USER_GROUP_ENV = os.environ.get("USER_GROUP", "")
 ELEVATED_USER_GROUP_ENV = os.environ.get("ELEVATED_USER_GROUP", "")
+TARGET_URL = os.environ.get("TARGET_URL", "")
 
 logger = logging.getLogger('registration')
 
@@ -61,7 +62,7 @@ def registration():
 
 @app.route("/success")
 def success():
-    return render_template("success.html")
+    return render_template("success.html", target_url=TARGET_URL)
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@
 | USER_GROUP | attendee | Set the FreeIPA user group for those who sign up with INVITE_CODE value. |
 | ELEVATED_INVITE_CODE | admin2020 | Set the invite code for users with elevated level of access (e.g. workshop admins). |
 | ELEVATED_USER_GROUP | sa-users | Set the FreeIPA user group for those who sign up with the ELEVATED_INVITE_CODE value. |
-
+| TARGET_URL | https://example.com/cjoc/ | URL to access the SDA instance. |
 
 ### How to run
 
