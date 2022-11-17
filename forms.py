@@ -21,11 +21,22 @@ class SignupForm(FlaskForm):
     if INVITE_CODE_ENV:
         invite_code = StringField("Invite code", validators=[DataRequired()])
 
+    def validate_email(self, email):
+        if "@cloudbees.com" not in email.data:
+            raise ValidationError(
+                "You must sign up with your CloudBees email account."
+            )
+
     def validate_username(self, username):
         user = client.user_find(username.data)
-        if user["count"] is not 0:
+        if user["count"] != 0:
             raise ValidationError(
                 f"Username {username.data} already exists, please use another."
+            )
+        if "@" in username.data:
+            raise ValidationError(
+                f"Invalid symbol in username {username.data}. Special characters like @ aren't allowed in the username. You "
+                f"can use the part before the @ in your email as your username. "
             )
 
     def validate_invite_code(self, invite_code):
