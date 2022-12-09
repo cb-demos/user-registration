@@ -13,6 +13,7 @@ gunicorn = "*"
 requests = "*"
 lookup = "*"
 sentry-sdk = { extras = ["flask"], version = "==0.14.2" }
+email-validator = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"
